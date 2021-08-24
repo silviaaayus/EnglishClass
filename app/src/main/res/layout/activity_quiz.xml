@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QuizActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/lineSkor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/_8sdp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SKOR : "
+                android:textSize="@dimen/_18sdp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/tvSkor"
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_18sdp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/lineSoal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lineSkor"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/_5sdp"
+            android:padding="@dimen/_8sdp">
+
+            <TextView
+                android:id="@+id/tvSoal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@color/black"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_18sdp"/>
+
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/linePilihanJawaban"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/lineSoal"
+            android:layout_margin="@dimen/_3sdp">
+
+
+            <RadioGroup
+                android:id="@+id/rgPilihanJawaban"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rbPilihanJawaban1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13sdp"/>
+
+
+                <RadioButton
+                    android:id="@+id/rbPilihanJawaban2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp"/>
+
+                <RadioButton
+                    android:id="@+id/rbPilihanJawaban3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:textSize="@dimen/_15sdp"/>
+
+
+                <RadioButton
+                    android:id="@+id/rbPilihanJawaban4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp" />
+
+                <RadioButton
+                    android:id="@+id/rbPilihanJawaban5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:textSize="@dimen/_15sdp"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linePilihanJawaban"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right"
+            android:layout_margin="@dimen/_8sdp"
+            android:text="SUBMIT"/>
+
+    </RelativeLayout>
+
+</ScrollView>

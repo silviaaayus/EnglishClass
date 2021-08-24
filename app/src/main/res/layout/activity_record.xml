@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".RecordActivity">
+
+    <LinearLayout
+        android:id="@+id/PilihanListening"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+    <Button
+        android:id="@+id/A"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:background="@color/purple_500"
+        android:padding="@dimen/_5sdp"
+        android:text="A"
+        android:gravity="center"
+        android:textColor="@color/white"
+      />
+        <Button
+            android:id="@+id/B"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/purple_500"
+            android:padding="@dimen/_5sdp"
+            android:text="B"
+            android:gravity="center"
+            android:textColor="@color/white"
+            />
+    </LinearLayout>
+
+
+
+    <ImageView
+        android:id="@+id/mic"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="254dp"
+        android:src="@drawable/ic_baseline_mic_none_24"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+
+        <!--Textview to start audio recording
+            drawableTop will add above mic image-->
+        <TextView
+            android:id="@+id/btnRecord"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/purple_500"
+            android:padding="@dimen/_5sdp"
+            android:text="Start Recording"
+            android:gravity="center"
+            android:textColor="@color/white"
+            app:drawableTopCompat="@drawable/ic_baseline_mic_24" />
+
+        <!--Textview to stop audio recording
+            drawableTop will add above mic image-->
+        <TextView
+            android:id="@+id/btnStop"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/purple_500"
+            android:padding="5dp"
+            android:text="Stop Recording"
+            android:gravity="center"
+            android:textColor="@color/white"
+            app:drawableTopCompat="@drawable/ic_baseline_mic_off_24" />
+
+        <!--Textview to play audio that is recorded
+            drawableTop will add above mic image-->
+        <TextView
+            android:id="@+id/btnPlay"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/purple_500"
+            android:padding="5dp"
+            android:text="Play Recording"
+            android:gravity="center"
+            android:textColor="@color/white"
+            app:drawableTopCompat="@drawable/ic_baseline_play_circle_filled_24" />
+
+
+        <TextView
+            android:id="@+id/btnstopPlay"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/purple_500"
+            android:padding="5dp"
+            android:text="Stop Recording"
+            android:gravity="center"
+            android:textColor="@color/white"
+            app:drawableTopCompat="@drawable/ic_baseline_pause_circle_outline_24" />
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>
