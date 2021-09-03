@@ -1,21 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="@dimen/_10sdp"
-    tools:context=".MeetingActivity">
+    android:id="@+id/drawerLayout"
+    android:background="@drawable/black"
+    >
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_meeting"
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_awal"
+    android:padding="@dimen/_10sdp">
+
+    <ImageView
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:id="@+id/btnMenu"
+        android:src="@drawable/ic_baseline_menu_24"
+        app:tint="@color/black" />
+
+    <TextView
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/user"
+        android:text="Hi, Riska "
+        android:textSize="@dimen/_20sdp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center|center_horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:spanCount="4"
-        tools:itemCount="4"
-        tools:listitem="@layout/item_row_meeting" />
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_60sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:orientation="vertical"
+        android:id="@+id/cardview_meeting"
+        android:background="@drawable/bg">
 
+        <LinearLayout
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_90sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Meeting\nClass 1"
+                android:id="@+id/meeting"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_25sdp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_light"
+                android:text="Come On and Start\nLearning"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp" />
+
+            <Button
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="wrap_content"
+                android:text="Start"
+                android:id="@+id/btnStart"
+                android:backgroundTint="#1ACB2C"/>
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_height="@dimen/_290sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginBottom="-60dp"
+            android:src="@drawable/gambar" />
+
+        <TextView
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_weight="1"
+            android:background="@drawable/bg_dosen"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:text="Mrs. Sally"
+            android:gravity="center"
+            android:fontFamily="@font/poppins_light"
+            android:id="@+id/dosen"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
 </LinearLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@drawable/side"
+        android:fitsSystemWindows="true"
+        android:translationZ="1dp"
+        app:headerLayout="@layout/head_sidebar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <include layout="@layout/head_sidebar"
+                android:id="@+id/nav"/>
+        </LinearLayout>
+
+    </com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>

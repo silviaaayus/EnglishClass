@@ -1,79 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="@dimen/_10sdp"
+    android:background="@drawable/bg_login"
     tools:context=".ListeningActivity">
 
-
-    <TextView
-        android:id="@+id/txtMateri"
+    <ImageView
+        android:id="@+id/imgpilihan"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_launcher_background"/>
+        android:layout_height="match_parent"
+        android:src="@drawable/pilihan"/>
 
     <LinearLayout
-        android:id="@+id/player_control"
+        android:id="@+id/linear1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="15dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        android:padding="@dimen/_20sdp"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:background="@drawable/back"
+            android:src="@drawable/ic_baseline_arrow_back_24"/>
+        <TextView
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center">
+            android:text="Listening"
+            android:textSize="@dimen/_20sdp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/white"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Listen and understand this conversation"
+            android:textSize="@dimen/_15sdp"
+            android:fontFamily="@font/poppins_light"
+            android:textColor="@color/white"/>
 
-            <ImageButton
-                android:id="@+id/bt_play"
-                android:layout_width="?attr/actionBarSize"
-                android:layout_height="?attr/actionBarSize"
-                android:clickable="true"
-                android:focusable="true"
-                android:src="@drawable/ic_baseline_play_circle_filled_24"
-             />
-
-            <View
-                android:layout_width="24dp"
-                android:layout_height="match_parent" />
-
-            <TextView
-                android:id="@+id/tv_song_current_duration"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0:00"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
-
-            <SeekBar
-                android:id="@+id/seek_song_progressbar"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:progress="0" />
-
-            <TextView
-                android:id="@+id/tv_song_total_duration"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0:00"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
-
-
-        </LinearLayout>
 
     </LinearLayout>
+    <RelativeLayout
+        android:layout_below="@id/linear1"
+        android:padding="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/card"
+        android:layout_marginTop="-10dp">
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:padding="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Learning "
+                        android:textSize="@dimen/_15sdp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sections"
+                        android:textSize="@dimen/_15sdp"
+                        android:fontFamily="@font/poppins_light"
+                        android:textColor="@color/black"/>
+                </LinearLayout>
 
-    <Button
-        android:id="@+id/btnNext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Next"
-        android:layout_gravity="right"/>
+                <LinearLayout
+                    android:id="@+id/learningListening"
+                    android:padding="@dimen/_5sdp"
+                    android:orientation="vertical"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/listening">
+                    <LinearLayout
+                        android:padding="@dimen/_5sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_weight="2"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:src="@drawable/speaker"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/_12sdp"
+                            android:text="  Listening"
+                            android:fontFamily="@font/poppins_bold"
+                            android:textColor="@color/white"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/player_control"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/_20sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <ImageButton
+                            android:id="@+id/bt_play"
+                            android:layout_width="?attr/actionBarSize"
+                            android:layout_height="?attr/actionBarSize"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:src="@drawable/ic_baseline_play_circle_filled_24"
+                            />
+
+                        <View
+                            android:layout_width="24dp"
+                            android:layout_height="match_parent" />
+
+                        <TextView
+                            android:id="@+id/tv_song_current_duration"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0:00"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
+                        <SeekBar
+                            android:id="@+id/seek_song_progressbar"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:progress="0" />
+
+                        <TextView
+                            android:id="@+id/tv_song_total_duration"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0:00"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="The Conversation"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp"
+                    android:fontFamily="@font/poppins_bold"/>
+                <TextView
+                    android:id="@+id/txtMateri"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/conver"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/poppins_light"/>
+                <TextView
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:id="@+id/btnNext"
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="@dimen/_28sdp"
+                    android:text="Let's go to question "
+                    android:fontFamily="@font/poppins_light"
+                    android:textColor="@color/white"
+                    android:background="@drawable/go"
+                    android:gravity="center"
+                    android:layout_gravity="right"/>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
 
 
 
-
-</LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

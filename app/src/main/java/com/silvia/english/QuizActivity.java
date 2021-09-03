@@ -1,11 +1,14 @@
 package com.silvia.english;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
@@ -22,6 +25,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class QuizActivity extends AppCompatActivity {
     private ActivityQuizBinding binding;
@@ -31,8 +35,10 @@ public class QuizActivity extends AppCompatActivity {
     int skor=0;
     int arr; //untuk menampung nilai panjang array
     int x;
-    String kunci, id_meeting,id_siswa;
+    String kunci, id_meeting,id_siswa,id_materi;
     int panjang;
+    CountDownTimer countDown;
+    String jumlahSkor;
 
 
     ArrayList<String> arraySoal = new ArrayList<>();
@@ -53,8 +59,10 @@ public class QuizActivity extends AppCompatActivity {
 
         id_meeting = tinyDB.getString("meeting_id");
         id_siswa = tinyDB.getString("keyIdSiswa");
+        id_materi = tinyDB.getString("meeting_materi_id");
         Log.e("id",id_meeting);
         Log.e("id_siswa",id_siswa);
+        Log.e("id__materi",id_materi);
 
         binding.tvSkor.setText(""+skor);
         binding.btnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +73,40 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
         ambilData();
+
+        binding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+
+
+        countDown= new CountDownTimer(360000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+
+                binding.mTextField.setText(""+String.format("%d : %d ",
+                        TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished),
+                        TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished)-
+                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+            }
+
+            public void onFinish() {
+                Toast.makeText(QuizActivity.this, "Yah, Sayang Waktunya Habis!", Toast.LENGTH_SHORT).show();
+
+                jumlahSkor = String.valueOf(skor);
+                Intent i = new Intent(QuizActivity.this, HasilKuisActivity.class);
+                i.putExtra("skorAkhir", jumlahSkor);
+                i.putExtra("activity", "PilihanGanda");
+                startActivity(i);
+
+            }
+        };
+        countDown.start();
+
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -73,10 +115,9 @@ public class QuizActivity extends AppCompatActivity {
         arr = arraySoal.size();
         if (x >= arr) { //jika nilai x melebihi nilai arr(panjang array) maka akan pindah activity (kuis selesai)
             //menjadikan skor menjadi string
-            String jumlahSkor = String.valueOf(skor);
+             jumlahSkor = String.valueOf(skor);
             Log.e("nilai", "" + jumlahSkor);
             Intent i = new Intent(QuizActivity.this, HasilKuisActivity.class);
-
             i.putExtra("activity", "PilihanGanda");
             i.putExtra("skorAkhir", jumlahSkor);
 
@@ -91,7 +132,7 @@ public class QuizActivity extends AppCompatActivity {
                 binding.rbPilihanJawaban2.setText(Html.fromHtml(arrayJawaban.get(x).get(1), Html.FROM_HTML_MODE_COMPACT));
                 binding.rbPilihanJawaban3.setText(Html.fromHtml(arrayJawaban.get(x).get(2), Html.FROM_HTML_MODE_COMPACT));
                 binding.rbPilihanJawaban4.setText(Html.fromHtml(arrayJawaban.get(x).get(3), Html.FROM_HTML_MODE_COMPACT));
-                binding.rbPilihanJawaban5.setText(Html.fromHtml(arrayJawaban.get(x).get(3), Html.FROM_HTML_MODE_COMPACT));
+                binding.rbPilihanJawaban5.setText(Html.fromHtml(arrayJawaban.get(x).get(4), Html.FROM_HTML_MODE_COMPACT));
                 kunci = Html.fromHtml(arrayKunci.get(x), Html.FROM_HTML_MODE_COMPACT).toString();
             } else {
                 binding.tvSoal.setText(Html.fromHtml(arraySoal.get(x)));
@@ -99,7 +140,7 @@ public class QuizActivity extends AppCompatActivity {
                 binding.rbPilihanJawaban2.setText(Html.fromHtml(arrayJawaban.get(x).get(1)));
                 binding.rbPilihanJawaban3.setText(Html.fromHtml(arrayJawaban.get(x).get(2)));
                 binding.rbPilihanJawaban4.setText(Html.fromHtml(arrayJawaban.get(x).get(3)));
-                binding.rbPilihanJawaban5.setText(Html.fromHtml(arrayJawaban.get(x).get(3)));
+                binding.rbPilihanJawaban5.setText(Html.fromHtml(arrayJawaban.get(x).get(4)));
                 kunci = String.valueOf(Html.fromHtml(arrayKunci.get(x)));
             }
 
@@ -176,6 +217,35 @@ public class QuizActivity extends AppCompatActivity {
             Toast.makeText(this, "Silahkan pilih jawaban dulu!", Toast.LENGTH_SHORT).show();
         }
     }
+
+    public void onBackPressed(){
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+        builder1.setMessage("Apakah kamu yakin ingin keluar dari session ini?");
+        builder1.setCancelable(true);
+
+        builder1.setPositiveButton(
+                "Ya",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        countDown.cancel();
+                        Intent i = new Intent(QuizActivity.this,ListeningActivity.class);
+                        startActivity(i);
+                    }
+                });
+
+        builder1.setNegativeButton(
+                "Tidak",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
+    }
+
+
 
 
 

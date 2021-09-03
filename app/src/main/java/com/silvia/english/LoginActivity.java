@@ -74,6 +74,7 @@ public class LoginActivity extends AppCompatActivity {
                                 String alamat = data.getString("siswa_alamat");
                                 String id_kelas = data.getString("kelas_id");
                                 String id_dosen = data.getString("dosen_id");
+                                String nim = data.getString("siswa_nim");
 
                                 tinyDB.putString("keyIdSiswa",id);
                                 tinyDB.putString("keyNama",nama);
@@ -82,6 +83,7 @@ public class LoginActivity extends AppCompatActivity {
                                 tinyDB.putString("keyAlamat",alamat);
                                 tinyDB.putString("keyIdKelas",id_kelas);
                                 tinyDB.putString("keyIdDosen",id_dosen);
+                                tinyDB.putString("keyNimSiswa",nim);
                                 Log.e("idSiswa",id);
 
                                 tinyDB.putBoolean("keyLogin",true);

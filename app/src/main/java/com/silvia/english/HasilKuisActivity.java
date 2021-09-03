@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class HasilKuisActivity extends AppCompatActivity {
     private ActivityHasilKuisBinding binding;
     ApiServer api;
-    String id, id_siswa, skorPilGan;
+    String id_materi, id_siswa, skorPilGan;
     TinyDB tinyDB;
 
 
@@ -33,7 +33,7 @@ public class HasilKuisActivity extends AppCompatActivity {
         AndroidNetworking.initialize(this);
         api = new ApiServer();
         tinyDB = new TinyDB(this);
-        id = tinyDB.getString("keyIdKuis");
+        id_materi = tinyDB.getString("meeting_materi_id");
         id_siswa = tinyDB.getString("keyIdSiswa");
         Log.e("idsiswa",id_siswa);
         setSkor();
@@ -61,15 +61,21 @@ public class HasilKuisActivity extends AppCompatActivity {
             }else if (Integer.valueOf(skorPilGan)<=100 && Integer.valueOf(skorPilGan)>=71){
                 motto="Selamat, Pertahankan Skormu";
             }
-            binding.tvSkorAkhir.setText("Skor Kamu : "+skorPilGan +"\n Motto : "+motto);
+            binding.tvSkorAkhir.setText("Skor Kamu : "+skorPilGan +"\n  "+motto);
             inputNilai();
         }
+    }
+
+    public void onBackPressed(){
+        Intent i = new Intent(HasilKuisActivity.this,MeetingActivity.class);
+        startActivity(i);
+
     }
 
     private void inputNilai() {
         AndroidNetworking.post(api.SKOR)
                 .addBodyParameter("siswa_id",id_siswa)
-                .addBodyParameter("meeting_kuis_id",id)
+                .addBodyParameter("meeting_materi_id",id_materi)
                 .addBodyParameter("skor", skorPilGan)
                 .setPriority(Priority.MEDIUM)
                 .build()

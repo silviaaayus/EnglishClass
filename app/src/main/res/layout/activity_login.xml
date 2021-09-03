@@ -1,59 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/_10sdp"
+    android:background="@drawable/bg_login"
     tools:context=".LoginActivity">
 
-    <TextView
-        android:layout_marginTop="@dimen/_15sdp"
+    <ImageView
+        android:id="@+id/imgpilihan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/pilihan"/>
+
+    <LinearLayout
+        android:id="@+id/linear1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nomor Induk Mahasiswa"
-        android:textColor="@color/black" />
+        android:padding="@dimen/_20sdp"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/edtNim"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/bg_login"
-        android:hint="NIM"
-        android:inputType="text"
-        android:padding="10dp"
-        android:singleLine="true" />
+        <TextView
+            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:textSize="@dimen/_25sdp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/white"/>
 
+    </LinearLayout>
 
-    <TextView
-        android:layout_marginTop="@dimen/_10sdp"
+    <RelativeLayout
+        android:layout_below="@id/linear1"
+        android:padding="@dimen/_10sdp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Password"
-        android:textColor="@color/black" />
-    <EditText
-        android:id="@+id/edtPass"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="@dimen/_5sdp"
-        android:background="@drawable/bg_login"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:padding="10dp"
-        android:singleLine="true" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/card"
+        android:layout_marginTop="50dp">
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_marginTop="@dimen/_20sdp"
+            android:padding="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NIM"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="@dimen/_15sdp"/>
+            <EditText
+                android:id="@+id/edtNim"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/black"
+                android:hint="NIM"
+                android:inputType="text"
+                android:padding="10dp"
+                android:singleLine="true"/>
 
 
-    <Button
-        android:layout_marginTop="@dimen/_8sdp"
-        android:id="@+id/btnlogin"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_35sdp"
-        android:layout_gravity="left"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:textColor="@color/white"
-        android:text="Login" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="@dimen/_15sdp"/>
+            <EditText
+                android:id="@+id/edtPass"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/black"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:singleLine="true"/>
 
-</LinearLayout>
+            <TextView
+                android:layout_marginTop="@dimen/_5sdp"
+                android:id="@+id/btnlogin"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_30sdp"
+                android:text="Login "
+                android:fontFamily="@font/poppins_light"
+                android:textColor="@color/white"
+                android:background="@drawable/go"
+                android:gravity="center"
+                android:layout_gravity="right"/>
+
+
+
+
+        </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+
+
+
+    </RelativeLayout>
+</RelativeLayout>

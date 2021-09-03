@@ -62,7 +62,7 @@ public class ListeningActivity extends AppCompatActivity {
 //        String audioUrl = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
 
 //        mPlayer = new MediaPlayer();
-        mPlayer = MediaPlayer.create(getApplication(), Uri.parse("http://192.168.100.15/english/audio/"+audio1));
+        mPlayer = MediaPlayer.create(getApplication(), Uri.parse(api.SUARA+audio1));
 
 
         endTime = mPlayer.getDuration();
@@ -78,6 +78,12 @@ public class ListeningActivity extends AppCompatActivity {
                 Intent i = new Intent(ListeningActivity.this, QuizActivity.class);
                 i.putExtra("meeting_id",id_meeting);
                 startActivity(i);
+            }
+        });
+        binding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               finish();
             }
         });
 
@@ -122,6 +128,28 @@ public class ListeningActivity extends AppCompatActivity {
             hdlr.postDelayed(this, 100);
         }
     };
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mPlayer.isPlaying()){
+            mPlayer.pause();
+            binding.btPlay.setImageResource(R.drawable.ic_baseline_play_circle_filled_24);
+        }
+
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mPlayer.isPlaying()){
+            mPlayer.release();
+            binding.btPlay.setImageResource(R.drawable.ic_baseline_play_circle_filled_24);
+        }
+
+
+    }
 
 
 

@@ -9,49 +9,41 @@
     android:paddingBottom="@dimen/_8sdp"
     android:layout_gravity="center"
     android:gravity="center"
+    android:background="@drawable/bg_awal"
     android:paddingRight="@dimen/_8sdp"
     android:paddingLeft= "@dimen/_8sdp"
     tools:context=".HasilKuisActivity">
 
     <TextView
+        android:gravity="center"
         android:id="@+id/tvSkorAkhir"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:gravity="center"
         android:paddingRight="@dimen/_8sdp"
         android:paddingBottom="@dimen/_8sdp"
         android:paddingTop="@dimen/_8sdp"
         android:paddingLeft="@dimen/_8sdp"
-        android:text="Skor Kamu : 100 "
+        android:text="Skor : 100 "
         android:textColor="@color/black"
+        android:fontFamily="@font/poppins_light"
         android:textSize="@dimen/_30sdp"/>
 
 
-
-    <Button
+    <TextView
         android:id="@+id/btnMenu"
-        android:layout_width="@dimen/_90sdp"
-        android:layout_height="@dimen/_80sdp"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_40sdp"
         android:layout_below="@id/tvSkorAkhir"
         android:layout_marginTop="@dimen/_40sdp"
         android:text="Home"
         android:gravity="center"
-
+        android:fontFamily="@font/poppins_bold"
+        android:background="@drawable/go"
+        android:textColor="@color/white"
         android:textSize="@dimen/_18sdp"/>
 
-    <Button
-        android:id="@+id/btnReplay"
-        android:layout_width="@dimen/_120sdp"
-        android:layout_height="@dimen/_80sdp"
-        android:layout_below="@id/tvSkorAkhir"
 
-        android:layout_marginLeft="@dimen/_100sdp"
-        android:layout_marginTop="@dimen/_40sdp"
-        android:layout_toRightOf="@id/btnMenu"
-        android:gravity="center"
-        android:text="Coba Lagi"
-        android:textSize="@dimen/_18sdp" />
 
 
 </RelativeLayout>
