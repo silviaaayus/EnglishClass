@@ -46,11 +46,15 @@ public class ChangePassword extends AppCompatActivity {
         binding.btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (binding.newPass.getText().toString().equalsIgnoreCase(binding.confirm.getText().toString())) {
+                if (binding.newPass.getText().toString().equals(binding.confirm.getText().toString())) {
                     editPassword();
+                    Intent i = new Intent(ChangePassword.this,LoginActivity.class);
+                    startActivity(i);
+                    Toast.makeText(ChangePassword.this, "Password Telah diganti", Toast.LENGTH_SHORT).show();
 
                 } else {
-                    Toast.makeText(ChangePassword.this, "Password Tidak Sama", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChangePassword.this, "Password Tidak Valid!", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
@@ -63,8 +67,7 @@ public class ChangePassword extends AppCompatActivity {
         Log.e("api",api.CHANGE_PASSWORD);
         AndroidNetworking.post(api.CHANGE_PASSWORD)
                 .addBodyParameter("siswa_id", id_siswa)
-                .addBodyParameter("siswa_password", binding.confirm.getText().toString())
-
+                .addBodyParameter("siswa_password", binding.newPass.getText().toString())
                 .setPriority(Priority.MEDIUM)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
@@ -74,8 +77,7 @@ public class ChangePassword extends AppCompatActivity {
                             String respon = response.getString("response");
                             if (respon.equalsIgnoreCase("Sukses")){
 
-                                Intent i = new Intent(ChangePassword.this,LoginActivity.class);
-                                startActivity(i);
+
                             }
 
                         } catch (JSONException e) {
