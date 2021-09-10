@@ -1,167 +1,379 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@drawable/bg_login"
     tools:context=".RecordActivity">
 
+    <ImageView
+        android:id="@+id/imgpilihan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/pilihan"/>
+
     <LinearLayout
-        android:id="@+id/PilihanListening"
+        android:id="@+id/linear1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2">
-
-    <Button
-        android:id="@+id/A"
-        android:layout_width="@dimen/_40sdp"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:background="@color/purple_500"
-        android:padding="@dimen/_5sdp"
-        android:text="A"
-        android:gravity="center"
-        android:textColor="@color/white"
-      />
-        <Button
-            android:id="@+id/B"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@color/purple_500"
-            android:padding="@dimen/_5sdp"
-            android:text="B"
-            android:gravity="center"
-            android:textColor="@color/white"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_below="@+id/PilihanListening"
-        android:id="@+id/player_control"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="15dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        android:padding="@dimen/_20sdp"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:background="@drawable/back"
+            android:src="@drawable/ic_baseline_arrow_back_24"/>
+        <TextView
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center">
+            android:text="Recording"
+            android:textSize="@dimen/_20sdp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/white"/>
+        <TextView
+            android:id="@+id/namaMeeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Meeting 1"
+            android:textSize="@dimen/_15sdp"
+            android:fontFamily="@font/poppins_light"
+            android:textColor="@color/white"/>
+
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_below="@id/linear1"
+        android:padding="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/card"
+        android:layout_marginTop="-10dp">
+        <LinearLayout
+            android:padding="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select "
+                    android:textSize="@dimen/_15sdp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sound"
+                    android:textSize="@dimen/_15sdp"
+                    android:fontFamily="@font/poppins_light"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:id="@+id/A"
+                    android:padding="@dimen/_5sdp"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/speaking">
+                    <LinearLayout
+                        android:padding="@dimen/_5sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/_12sdp"
+                            android:text="Play Sound A "
+                            android:fontFamily="@font/poppins_light"
+                            android:textColor="@color/white"/>
+                        <ImageButton
+                            android:id="@+id/imgA"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:backgroundTint="#FF6363"
+                            android:src="@drawable/ic_baseline_play_circle_filled_24"
+                            app:tint="@color/white" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:id="@+id/B"
+                    android:padding="@dimen/_5sdp"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/speaking">
+                    <LinearLayout
+                        android:padding="@dimen/_5sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/_12sdp"
+                            android:text="Play Sound B "
+                            android:fontFamily="@font/poppins_light"
+                            android:textColor="@color/white"/>
+                        <ImageButton
+                            android:backgroundTint="#FF6363"
+                            android:id="@+id/imgB"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:src="@drawable/ic_baseline_play_circle_filled_24"
+                            app:tint="@color/white" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
 
 
 
-            <View
-                android:layout_width="24dp"
-                android:layout_height="match_parent" />
+
+
+
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/tv_song_current_duration"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0:00"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+                android:text="Record"
+                android:textSize="@dimen/_15sdp"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"/>
 
-            <SeekBar
-                android:id="@+id/seek_song_progressbar"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:progress="0" />
+                android:orientation="horizontal"
+                android:weightSum="4">
+                <LinearLayout
+                    android:id="@+id/btnRecord"
+                    android:padding="@dimen/_5sdp"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/go">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <ImageView
+                            android:id="@+id/imgPlay"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:src="@drawable/ic_baseline_mic_24"
+                            app:tint="@color/white" />
 
-            <TextView
-                android:id="@+id/tv_song_total_duration"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0:00"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_light"
+                            android:gravity="center"
+                            android:text="Start Record"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10sdp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:id="@+id/btnStop"
+                    android:padding="@dimen/_5sdp"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/go">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <ImageView
+                            android:id="@+id/imgStop"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:src="@drawable/ic_baseline_mic_off_24"
+                            app:tint="@color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_light"
+                            android:gravity="center"
+                            android:text="Stop Record"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10sdp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:id="@+id/btnPlay"
+                    android:padding="@dimen/_5sdp"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/go">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:src="@drawable/ic_baseline_play_circle_filled_24"
+                            app:tint="@color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_light"
+                            android:gravity="center"
+                            android:text="Start Playing"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10sdp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:id="@+id/btnStopPlay"
+                    android:padding="@dimen/_5sdp"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/go">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:src="@drawable/ic_baseline_pause_circle_outline_24"
+                            app:tint="@color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_light"
+                            android:gravity="center"
+                            android:text="Stop Playing "
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10sdp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="The Conversation"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_15sdp"
+                            android:fontFamily="@font/poppins_bold"/>
+                        <TextView
+                            android:id="@+id/txtMateri"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/conver"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10sdp"
+                            android:fontFamily="@font/poppins_light"/>
+
+                        <TextView
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:id="@+id/btnSimpan"
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="@dimen/_28sdp"
+                            android:text="Save "
+                            android:fontFamily="@font/poppins_light"
+                            android:textColor="@color/white"
+                            android:background="@drawable/go"
+                            android:gravity="center"
+                            android:layout_gravity="right"/>
+
+
+                    </LinearLayout>
+
+                </androidx.core.widget.NestedScrollView>
+
+            </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         </LinearLayout>
 
-    </LinearLayout>
 
-    <ImageView
-        android:id="@+id/mic"
-        android:layout_width="@dimen/_50sdp"
-        android:layout_height="@dimen/_50sdp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="254dp"
-        android:src="@drawable/ic_baseline_mic_none_24"
-        android:visibility="gone" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="horizontal"
-        android:weightSum="4">
-
-
-        <!--Textview to start audio recording
-            drawableTop will add above mic image-->
-        <TextView
-            android:id="@+id/btnRecord"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@color/purple_500"
-            android:padding="@dimen/_5sdp"
-            android:text="Start Recording"
-            android:gravity="center"
-            android:textColor="@color/white"
-            app:drawableTopCompat="@drawable/ic_baseline_mic_24" />
-
-        <!--Textview to stop audio recording
-            drawableTop will add above mic image-->
-        <TextView
-            android:id="@+id/btnStop"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@color/purple_500"
-            android:padding="5dp"
-            android:text="Stop Recording"
-            android:gravity="center"
-            android:textColor="@color/white"
-            app:drawableTopCompat="@drawable/ic_baseline_mic_off_24" />
-
-        <!--Textview to play audio that is recorded
-            drawableTop will add above mic image-->
-        <TextView
-            android:id="@+id/btnPlay"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@color/purple_500"
-            android:padding="5dp"
-            android:text="Play Recording"
-            android:gravity="center"
-            android:textColor="@color/white"
-            app:drawableTopCompat="@drawable/ic_baseline_play_circle_filled_24" />
-
-
-        <TextView
-            android:id="@+id/btnstopPlay"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@color/purple_500"
-            android:padding="5dp"
-            android:text="Stop Recording"
-            android:gravity="center"
-            android:textColor="@color/white"
-            app:drawableTopCompat="@drawable/ic_baseline_pause_circle_outline_24" />
-
-    </LinearLayout>
+    </RelativeLayout>
 
 
 

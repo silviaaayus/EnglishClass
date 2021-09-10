@@ -11,10 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.English"
         android:usesCleartextTraffic="true">
-        <activity android:name=".HasilKuisActivity"></activity>
-        <activity android:name=".PilihanActivity" >
-
-        </activity>
+        <activity android:name=".HistoryActivity"></activity>
+        <activity android:name=".ChangePassword" />
+        <activity android:name=".SpeakingActivity" />
+        <activity android:name=".HasilKuisActivity" />
+        <activity android:name=".PilihanActivity" />
         <activity android:name=".QuizActivity" />
         <activity android:name=".RecordActivity" />
         <activity android:name=".MeetingActivity" />
@@ -25,15 +26,18 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".MainActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
 
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

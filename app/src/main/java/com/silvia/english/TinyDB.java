@@ -24,6 +24,8 @@ public class TinyDB {
 
     private static final String PREF_NAME = "e_rental";
 
+    public static final String meeting_materi_id = "meeting_materi_id";
+
     public TinyDB(Context appContext) {
         /* preferences = PreferenceManager.getDefaultSharedPreferences(appContext);*/
         preferences = appContext.getSharedPreferences(PREF_NAME, Private_mode);
