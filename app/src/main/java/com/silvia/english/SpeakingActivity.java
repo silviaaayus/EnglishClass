@@ -8,6 +8,7 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Html;
 import android.view.View;
 
 import com.androidnetworking.AndroidNetworking;
@@ -99,7 +100,7 @@ public class SpeakingActivity extends AppCompatActivity {
 
 
 
-        binding.txtMateri.setText(materi);
+        binding.txtMateri.setText(Html.fromHtml(materi));
 
 
 

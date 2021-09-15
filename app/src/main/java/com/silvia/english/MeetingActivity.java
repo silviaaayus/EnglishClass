@@ -5,9 +5,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.navigation.NavController;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -59,6 +57,9 @@ public class MeetingActivity extends AppCompatActivity implements NavigationView
         id_dosen = tinyDB.getString("keyIdDosen");
         nama = tinyDB.getString("keyNama");
         nim = tinyDB.getString("keyNimSiswa");
+        Log.e("nama",nama);
+
+        binding.user.setText("Hi, "+nama);
 
 
         binding.nav.namaUserSide.setText(nama);

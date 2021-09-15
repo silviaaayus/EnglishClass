@@ -14,6 +14,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -75,7 +76,7 @@ public class RecordActivity extends AppCompatActivity {
         mPlayer = MediaPlayer.create(getApplication(), Uri.parse(api.SUARA+audio1));
         mmPlayer = MediaPlayer.create(getApplication(), Uri.parse(api.SUARA+audio2));
 
-        binding.txtMateri.setText(materi);
+        binding.txtMateri.setText(Html.fromHtml(materi));
         binding.btnSimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
